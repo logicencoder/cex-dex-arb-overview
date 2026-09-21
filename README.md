@@ -1,5 +1,7 @@
 # CEX/DEX Arb Dashboard
 
+![CEX/DEX Arb Dashboard — live spread monitor and arbitrage tables](assets/cex-dex-arb.png)
+
 **Real-time Ethereum Uniswap vs MEXC (and optional Gate.io) arbitrage — screen hundreds of pairs, monitor one coin live, and auto-execute two-leg trades with MEV-protected on-chain swaps.**
 
 The **CEX/DEX Arb Dashboard** is an operator trading workstation for **Ethereum mainnet Uniswap V2/V3 ↔ centralized exchange** arbitrage. MEXC is the primary CEX; Gate.io is optional per coin. The UI combines a live price and pool monitor, ranked pair scanner, dual-direction arb tables at multiple trade sizes, automatic two-leg execution, manual 1inch swaps with MEV bundle submission, and deep feed-health visibility — all over WebSocket with REST fallback.
