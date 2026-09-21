@@ -4,7 +4,7 @@
 
 The **CEX/DEX Arb Dashboard** is an operator trading workstation for **Ethereum mainnet Uniswap V2/V3 ↔ centralized exchange** arbitrage. MEXC is the primary CEX; Gate.io is optional per coin. The UI combines a live price and pool monitor, ranked pair scanner, dual-direction arb tables at multiple trade sizes, automatic two-leg execution, manual 1inch swaps with MEV bundle submission, and deep feed-health visibility — all over WebSocket with REST fallback.
 
-Built for **hands-on operators** who run their own ETH RPC, CEX API keys, and wallet — not a retail mobile app. Keys and wallet material stay in local config; this overview describes product behaviour only.
+Built for **hands-on operators** who run their own ETH RPC, CEX API keys, and wallet on hardware they control. Keys and wallet material stay in local config.
 
 **Made by [Logic Encoder](https://logicencoder.com)**
 
@@ -12,7 +12,26 @@ Private source: [logicencoder/cex-dex-arb](https://github.com/logicencoder/cex-d
 
 ---
 
-## What you can do
+## Tech stack
+
+| Layer | Technologies |
+|-------|----------------|
+| Runtime | Python 3, asyncio |
+| API server | FastAPI, Uvicorn |
+| Frontend | Vanilla HTML/CSS/JS |
+| Charts | TradingView embed |
+| Blockchain | Web3.py, eth-account, eth-abi, eth-defi |
+| DEX | Uniswap V2/V3 on-chain quoter and pool discovery |
+| Swap routing | 1inch AggregationRouter v6 |
+| MEV | eth_sendBundle to multiple builders plus Flashbots Fast raw |
+| CEX — MEXC | REST v3, protobuf WebSocket |
+| CEX — Gate | Spot v4 REST + WebSocket |
+| Serialization | orjson, Pydantic, protobuf |
+| Persistence | JSON files (stored coins, ignore list, caches) |
+
+---
+
+## Console surfaces
 
 | Area | In plain language |
 |------|-------------------|
@@ -31,7 +50,7 @@ Prices, arb rows, balances, scanner ranks, and MEV stats push over **WebSocket**
 
 ---
 
-## Feature examples (two per capability)
+## Operator workflows
 
 #### Command bar and feed health
 1. MEXC TRD is green but OB is red — you know orderbook WebSocket is down while trades still flow.
@@ -131,35 +150,8 @@ Prices, arb rows, balances, scanner ranks, and MEV stats push over **WebSocket**
 
 ---
 
-## What it does not do
+**Scope:** a single-operator workstation for Ethereum mainnet — Uniswap V2/V3 pairs against MEXC (optional Gate.io) spot. It is a screening and execution toolset: sizing, risk, and capital stay with the operator. Wallet keys, CEX credentials, and trade logs remain in local config on the operator machine.
 
-- **Not** a mobile or multi-user SaaS — single-operator workstation with local keys
-- **Not** cross-chain — Ethereum mainnet Uniswap V2/V3 vs CEX spot
-- **Not** guaranteed profit — screening and execution tools; risk and capital are yours
-- **Not** custodial — you hold wallet keys and CEX API credentials on your machine
-
-API keys, wallet material, and trade logs stay local — not published in this overview repo.
-
----
-
-## Tech stack
-
-| Layer | Technologies |
-|-------|----------------|
-| Runtime | Python 3, asyncio |
-| API server | FastAPI, Uvicorn |
-| Frontend | Vanilla HTML/CSS/JS |
-| Charts | TradingView embed |
-| Blockchain | Web3.py, eth-account, eth-abi, eth-defi |
-| DEX | Uniswap V2/V3 on-chain quoter and pool discovery |
-| Swap routing | 1inch AggregationRouter v6 |
-| MEV | eth_sendBundle to multiple builders plus Flashbots Fast raw |
-| CEX — MEXC | REST v3, protobuf WebSocket |
-| CEX — Gate | Spot v4 REST + WebSocket |
-| Serialization | orjson, Pydantic, protobuf |
-| Persistence | JSON files (stored coins, ignore list, caches) |
-
----
 
 ## Quick start
 
