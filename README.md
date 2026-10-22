@@ -33,7 +33,7 @@ Manual swap and configured automation controls provide different ways to act on 
 
 ## Adapt the workspace
 
-Layout, sounds and privacy preferences make the trading desk easier to use across different sessions. Logs and health information assist with interruptions. Further screenshots should show opportunity inspection and controls in addition to the current screening table.
+Layout, sounds and privacy preferences make the trading desk easier to use across different sessions. Logs and health information assist with interruptions.
 
 ---
 
