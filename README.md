@@ -1,6 +1,6 @@
 # CEX/DEX Arbitrage Dashboard
 
-![CEX/DEX Arbitrage Dashboard workspace](assets/cex-dex-arb.png)
+![CEX/DEX Arbitrage Dashboard workspace](assets/cex-dex-arbitrage-dashboard-quote-comparison.png)
 
 Comparing an exchange price with a decentralised market is only the beginning of evaluating an opportunity. This dashboard brings market screening, trade-size comparisons and execution controls into one workspace, helping the operator inspect the opportunity in context before acting.
 
